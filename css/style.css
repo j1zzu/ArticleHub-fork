@@ -1,0 +1,492 @@
+* {
+  padding: 0;
+  margin: auto;
+}
+
+@font-face {
+  font-family: 'Nunito-Black';
+  src:
+    local('Nunito-Black'),
+    url('../fonts/Nunito/static/Nunito-Black.ttf') format('ttf');
+}
+
+@font-face {
+  font-family: 'Nunito-Bold';
+  src:
+    local('Nunito-Bold'),
+    url('../fonts/Nunito/static/Nunito-Bold.ttf') format('ttf');
+}
+
+/* Анимации текста */
+@keyframes showDownText {
+  0% {
+    transform: translate3d(0, 100%, 0);
+    /* Старт снизу */
+    opacity: 0;
+  }
+
+  30% {
+    transform: translate3d(0, 50%, 0);
+    /* Промежуточная точка */
+    opacity: 1;
+  }
+
+  70% {
+    transform: translate3d(0, 0, 0);
+    /* Финишная позиция */
+    opacity: 1;
+  }
+
+  100% {
+    transform: translate3d(0, 0, 0);
+    /* Остаётся на месте */
+    opacity: 1;
+    /* Плавное исчезновение */
+  }
+}
+
+@keyframes showTopText {
+  0% {
+    transform: translate3d(100%, 0, 0);
+    /* Старт снизу */
+    opacity: 0;
+  }
+
+  70% {
+    transform: translate3d(0, 0, 0);
+    /* Финишная позиция */
+    opacity: 1;
+  }
+
+  100% {
+    transform: translate3d(0, 0, 0);
+    /* Остаётся на месте */
+    opacity: 1;
+    /* Плавное исчезновение */
+  }
+}
+
+@keyframes lineShow {
+  0% {
+    transform: translate3d(-100%, 0, 0);
+    /* Старт снизу */
+    opacity: 0;
+  }
+
+  70% {
+    transform: translate3d(0, 0, 0);
+    /* Финишная позиция */
+    opacity: 1;
+  }
+
+  100% {
+    transform: translate3d(0, 0, 0);
+    /* Остаётся на месте */
+    opacity: 1;
+    /* Плавное исчезновение */
+  }
+}
+
+/*BODY */
+body {
+  background-image: url('../img/back1.jpg');
+  background-size:cover; /* Картинка заполнит весь фон */
+  background-repeat: no-repeat; /* Без повторения */
+  min-height: 100vh; /* Высота на весь экран */
+  margin: 0;
+}
+
+/*HEADER*/
+.header {
+  margin: 0 20px;
+  margin-bottom: 80px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  padding: 12px;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  position: fixed;
+  background-color: #fffffebb;
+
+}
+
+.image-logo {
+  margin: 0;
+}
+
+.group-header {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  gap: 120px;
+}
+
+.nav {
+  margin: 0;
+}
+
+.nav-menu {
+  display: flex;
+  list-style-type: none;
+  text-align: center;
+  font-size: 20px;
+  gap: 100px;
+}
+
+.nav-menu li {
+  padding: 5px;
+  border: 3px solid #9569d3bb;
+  border-radius: 10px;
+  transition: all 0.5s ease;
+  box-shadow: inset 140px 0 0 0 #c7ace2dd;
+
+}
+
+.nav-menu li:hover {
+  border-color: transparent;
+  box-shadow: inset 0 0 0 0 #eeeeee;
+}
+
+.nav-menu li a {
+  text-decoration: none;
+  color: #000000;
+  font-family: 'Nunito-Black', sans-serif;
+
+}
+
+/* MAIN */
+
+.main {
+  width: 1350px;
+  padding: 160px 20px;
+}
+.main-cover {
+  padding:20px;
+  background-color: #faf6fbbb;
+  border-radius: 12px;
+
+}
+
+.hashtags-block-div {
+  max-width: fit-content;
+  /* Размер заголовка */
+  margin: 0;
+  /* Отступы */
+  margin-bottom: 25px;
+}
+.hashtags {
+  display: flex;
+  gap:20px;
+  align-items: center;
+}
+.hashtags li {
+  list-style-type: none;
+  /* Размер заголовка */
+  /* Отступы */
+
+}
+.hashtags li span  {
+  font-family: 'Nunito-Black', sans-serif;
+  font-size: 16px;
+  /* Размер заголовка */
+  margin: 0;
+  text-decoration: underline;
+
+}
+
+.hashtags li a {
+  font-family: 'Nunito-Black', sans-serif;
+  font-size: 20px;
+  /* Размер заголовка */
+  margin: 0;
+  color: #000;
+  text-decoration: none;
+  box-shadow: 10px 5px 5px rgba(0, 0, 255, 0.2);
+  padding: 5px;
+  background-color: #9569d3bb;
+  border-radius: 10px;
+
+}
+
+.breadcrumbs-block {
+  max-width: fit-content;
+  /* Размер заголовка */
+  margin: 0;
+  /* Отступы */
+  margin-bottom: 25px;
+}
+.breadcrumbs {
+  display: flex;
+  list-style-type: none;
+  margin: 0;
+  gap:10px;
+}
+.breadcrumbs li {
+  font-family: 'Nunito-Black', sans-serif;
+  font-size: 16px;
+  /* Размер заголовка */
+  margin: 0;
+  /* Отступы */
+  color: #000;
+  transition: color 0.3s ease;
+}
+.breadcrumbs li a {
+  text-decoration: underline;
+  color: #000;
+}
+
+.top-section {
+  display: flex;
+  /* Расположим изображение и текст в ряд */
+  align-items: center;
+  /* Выровняем по центру вертикально */
+  padding: 40px 20px;
+  /* Отступы */
+  gap: 50px;
+  /* Промежуток между изображением и текстом */
+  box-shadow: 0px 0px 0px 0px rgb(14, 7, 7), 0px 17px 38px 0px rgba(15, 8, 8, 0.258), 0px 68px 68px 0px rgba(255, 255, 255, 0.035), 0px 100px 80px 0px rgba(0, 0, 0, 0.245);
+  border-radius: 12px;
+  background-color: #c7ace2ad;
+  margin-bottom: 150px;
+}
+
+
+.top-image img {
+  width: 800px;
+  border-radius: 16px;
+  transition: transform 0.3s ease;
+}
+
+.top-image {
+  overflow: hidden;
+}
+
+.top-image img:hover {
+  transform: scale(0.9);
+  /* Увеличиваем масштаб изображения при наведении */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+
+}
+
+.top-text {
+  flex: 1;
+  /* Текст займёт оставшееся пространство */
+  overflow: hidden;
+
+}
+
+.top-text h1 {
+  font-family: 'Nunito-Black', sans-serif;
+  font-weight: 700;
+  font-size: 36px;
+  /* Размер заголовка */
+  margin: 0;
+  /* Отступы */
+  color: #000;
+  overflow: hidden;
+  animation: showTopText 3.5s ease-in-out;
+  animation-delay: 1.5s;
+  animation-fill-mode: both;
+  transform: translate(0, 100%);
+
+}
+
+.top-text p {
+  font-family: 'Nunito-Bold', sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  /* Размер текста */
+  color: #000000;
+  line-height: 1.5;
+  /* Межстрочный интервал */
+  margin-top: 10px;
+  animation: showDownText 3.5s ease-in-out;
+  animation-delay: 1.5s;
+  animation-fill-mode: forwards;
+  bottom: 0;
+  transform: translate(0, 100%);
+}
+
+.line {
+  width: 300px;
+  margin: 0;
+  height: 2px;
+  border-radius: 12px;
+  border: 1px solid #000000;
+  background-color: rgb(0, 0, 0);
+  animation: lineShow 3.5s ease-in-out;
+  animation-delay: 1.5s;
+  animation-fill-mode: both;
+}
+
+/* */
+.genre-section {
+  margin-bottom: 100px;
+}
+.genre-div {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  margin-bottom: 20px;
+  margin-left: 50px;
+}
+
+.genre-span-div {
+  display: flex;
+}
+.genre-div span {
+  margin: 30px 0;
+  text-align: center;
+  font-family: 'Nunito-Bold', sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  /* Размер текста */
+  color: #000000;
+  border-radius: 12px;
+  padding: 15px 20px;
+  box-shadow: 0px 0px 0px 0px rgb(14, 7, 7), 0px 17px 38px 0px rgba(15, 8, 8, 0.258), 0px 68px 68px 0px rgba(255, 255, 255, 0.035), 0px 100px 80px 0px rgba(0, 0, 0, 0.245);
+}
+.genre-div h1 {
+  font-family: 'Nunito-Black', sans-serif;
+  font-weight: 700;
+  font-size: 36px;
+  /* Размер заголовка */
+  margin: 0;
+  /* Отступы */
+  color: #000;
+}
+
+.genre-div h2 {
+  font-family: 'Nunito-Black', sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  /* Размер заголовка */
+  margin: 0;
+  /* Отступы */
+  color: #000;
+}
+.genre-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.genre-list li {
+  display: flex;
+  flex-direction: row;
+}
+.genre-list-item {
+  display: flex;
+  flex-direction: row;
+  gap: 150px;
+  margin-bottom: 50px;
+}
+.genre-text-div {
+  width: 500px;
+  margin-left: 50px;
+  border: 4px solid #6f31c6bb;
+  border-radius: 12px;
+  background-color: #c7ace2ad;
+  padding: 20px;
+  box-shadow: 0px 0px 0px 0px rgb(14, 7, 7), 0px 17px 38px 0px rgba(15, 8, 8, 0.258), 0px 68px 68px 0px rgba(255, 255, 255, 0.035), 0px 60px 80px 0px rgba(0, 0, 0, 0.245);
+}
+.genre-text-div span{
+  font-family: 'Nunito-Bold', sans-serif;
+  font-weight: 400;
+  font-size: 19px;
+  /* Размер текста */
+  color: #000000;
+  line-height: 1.5;
+  /* Межстрочный интервал */
+}
+.genre-text-div h2 {
+  font-family: 'Nunito-Black', sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+  /* Размер заголовка */
+  margin: 0;
+  /* Отступы */
+}
+
+.img-cs {
+  width:300px;
+  border-radius: 12px;
+  border: 4px solid #000000;
+  box-shadow: 0px 0px 0px 0px rgb(14, 7, 7), 0px 17px 38px 0px rgba(15, 8, 8, 0.258), 0px 68px 68px 0px rgba(255, 255, 255, 0.035), 0px 100px 80px 0px rgba(0, 0, 0, 0.245);
+}
+
+.img-val {
+  width:300px;
+  border-radius: 12px;
+  border: 4px solid #000000;
+  box-shadow: 0px 0px 0px 0px rgb(14, 7, 7), 0px 17px 38px 0px rgba(15, 8, 8, 0.258), 0px 68px 68px 0px rgba(255, 255, 255, 0.035), 0px 100px 80px 0px rgba(0, 0, 0, 0.245);
+}
+
+.img-apex {
+  width:300px;
+  border-radius: 12px;
+  border: 4px solid #000000;
+  box-shadow: 0px 0px 0px 0px rgb(14, 7, 7), 0px 17px 38px 0px rgba(15, 8, 8, 0.258), 0px 68px 68px 0px rgba(255, 255, 255, 0.035), 0px 100px 80px 0px rgba(0, 0, 0, 0.245);
+}
+
+.img-frag {
+  width:500px;
+  border-radius: 12px;
+  border: 4px solid #000000;
+  box-shadow: 0px 0px 0px 0px rgb(14, 7, 7), 0px 17px 38px 0px rgba(15, 8, 8, 0.258), 0px 68px 68px 0px rgba(255, 255, 255, 0.035), 0px 100px 80px 0px rgba(0, 0, 0, 0.245);
+}
+
+.img-vis {
+  width:500px;
+  border-radius: 12px;
+  border: 4px solid #000000;
+  box-shadow: 0px 0px 0px 0px rgb(14, 7, 7), 0px 17px 38px 0px rgba(15, 8, 8, 0.258), 0px 68px 68px 0px rgba(255, 255, 255, 0.035), 0px 100px 80px 0px rgba(0, 0, 0, 0.245);
+}
+
+.img-outl {
+  width:500px;
+  border-radius: 12px;
+  border: 4px solid #000000;
+  box-shadow: 0px 0px 0px 0px rgb(14, 7, 7), 0px 17px 38px 0px rgba(15, 8, 8, 0.258), 0px 68px 68px 0px rgba(255, 255, 255, 0.035), 0px 100px 80px 0px rgba(0, 0, 0, 0.245);
+}
+
+/*footer*/
+.footer-line {
+  margin: 0 auto;
+  width: 1000px;
+  height: 2px;
+  border-radius: 12px;
+  border: 1px solid #000000;
+  background-color: rgb(0, 0, 0);
+  animation: footerlineShow 3.5s ease-in-out;
+  animation-delay: 1.5s;
+  animation-fill-mode: both;
+}
+.container-footer {
+  padding-top: 60px;
+  width: 800px;
+  margin: 0 auto;
+}
+
+.container-messangers {
+  border: 4px solid #ae6afb;
+  background-color: #d7c3f8;
+  border-radius: 12px;
+  padding: 20px 10px;
+  box-shadow: 0px 0px 0px 0px rgb(14, 7, 7), 0px 17px 38px 0px rgba(15, 8, 8, 0.258), 0px 68px 68px 0px rgba(255, 255, 255, 0.035), 0px 100px 80px 0px rgba(0, 0, 0, 0.245);
+}
+/*ссылки на соцсети*/
+.list-messangers {
+  align-items:center;
+  display: flex;
+  gap: 50px;
+  justify-content: center;
+  text-decoration: none;
+  list-style-type: none;
+  padding: 0;
+
+}
+
+.empty-block {
+  height: 50px;
+}
