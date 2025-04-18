@@ -14,3 +14,5 @@ Website was made with [@j1zzu](httpsgithub.comj1zzu).
 ## Install
 1. Clone repository git clone httpsgithub.comDenrezitNoteTracker.git
 2. Open index.html in the browser
+
+![Build status](https://github.com/Denrezit/ArticleHub/workflows/CI/badge.svg)
